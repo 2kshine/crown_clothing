@@ -16,17 +16,17 @@ class SignIn extends React.Component {
 
     handleSubmit = async (event) => {
         event.preventDefault(); //if the event does not get explicitly handled, its default action should not be taken
-        
-        const {email, password} = this.state;
-        try{
+
+        const { email, password } = this.state;
+        try {
             await auth.signInWithEmailAndPassword(email, password);
             this.setState({ email: '', password: '' }) //clear the state.
 
-        }catch (error){
+        } catch (error) {
             console.log(error)
         }
 
-        
+
     }
 
     handleChange = (event) => {
@@ -35,6 +35,7 @@ class SignIn extends React.Component {
     }
 
     render() {
+        const { email, password } = this.state;
         return (
             <div className="sign-in">
                 <h2>I already have an account.</h2>
@@ -44,7 +45,7 @@ class SignIn extends React.Component {
                     <FormInput
                         name="email"
                         type='email'
-                        value={this.state.email}
+                        value={email}
                         handleChange={this.handleChange}
                         label="email"
                         required
@@ -52,7 +53,7 @@ class SignIn extends React.Component {
                     <FormInput
                         name="password"
                         type='password'
-                        value={this.state.password}
+                        value={password}
                         handleChange={this.handleChange}
                         label="password"
                         required

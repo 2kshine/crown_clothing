@@ -44,7 +44,6 @@ export const firestore = firebase.firestore();
 const provider = new firebase.auth.GoogleAuthProvider(); //access to google auth from authentication library of google
 provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
-
 export default firebase;
 
 //documentRef returns a documentSnapshot object.
